@@ -12,8 +12,10 @@ setwd(this.dir)
 
 if(!exists("subset_data")) source("get_file.R")
 
-png("plot2.png", width=480, height=480)
+par(mfrow=c(1,1), mar=c(4,4,4,4), oma=c(0,0,0,0))
+
 plot(subset_data$Datetime, subset_data$Global_active_power, type="l", xlab="", ylab="Global Active Power (kilowatts)")
+dev.copy(png, file="plot2.png", height=480, width=480)
 dev.off()
 
 # go back to old working directory
